@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロフィール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>五十嵐はるか</h1>
+    <p class="catch">静岡から埼玉へ。Webで生きていく準備中。</p>
+</header>
+
+  <section id="about" class="fade-in">
+    <h2>自己紹介</h2>
+    <div class="about-inner">
+    <img src="photo.png" alt="プロフィール写真" class="profile-photo">
+    <div class="about-text">
+      <p>静岡県在住、32歳。現在Webサイト制作を学習中です。</p>
+      <p>AIと協力してより効率的に作業を出来るよう奮闘中です。</p>
+    </div>
+    </div>
+  </section>
+
+  <section id="skills" class="fade-in">
+    <h2>できること</h2>
+    <ul>
+      <li>HTML / CSS</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="fade-in">
+  <h2>お問い合わせ</h2>
+  <form action="https://formspree.io/f/mzdqrrdz" method="POST">
+    <div class="form-group">
+      <label for="name">お名前</label>
+      <input type="text" id="name" name="name" placeholder="山田太郎">
+    </div>
+    <div class="form-group">
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" name="email" placeholder="example@gmail.com">
+    </div>
+    <div class="form-group">
+      <label for="message">メッセージ</label>
+      <textarea id="message" name="message" rows="5" placeholder="お気軽にご連絡ください"></textarea>
+    </div>
+    <button type="submit">送信する</button>
+  </form>
+</section>
+
+<script>
+    // スクロールでふわっと表示
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+
+    // ページが表示されたときにフォームをリセット
+  window.addEventListener('pageshow', function() {
+    document.querySelector('form').reset();
+  });
+  document.querySelector('form').addEventListener('submit', function(e) {
+    var name    = document.getElementById('name').value;
+    var email   = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    if (!name || !email || !message) {
+      alert('すべての項目を入力してください');
+      e.preventDefault();
+      return;
+    }
+
+    var confirmed = confirm(
+      '以下の内容で送信しますか？\n\n' +
+      'お名前：' + name + '\n' +
+      'メール：' + email + '\n' +
+      'メッセージ：' + message
+    );
+
+    if (!confirmed) {
+      e.preventDefault(); // キャンセルしたら送信しない
+    }
+  });
+</script>
+
+</body>
+</html>

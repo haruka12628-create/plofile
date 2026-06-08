@@ -1,0 +1,188 @@
+/* ========== 全体 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.8;
+  background-color: #fdf8f0; /* 砂浜っぽいベージュ */
+}
+
+/* ========== ヘッダー ========== */
+header {
+  background-image: url('hero.jpg');
+  background-size: cover;      /* 画像をヘッダー全体に広げる */
+  background-position: center; /* 画像の中央を表示 */
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,   /* 上は透明に近い → 写真が綺麗に見える */
+    rgba(0, 0, 0, 0.45) 100%  /* 下だけ少し暗くして文字を読みやすく */
+  );
+}
+
+header h1,
+header p {
+  position: relative; /* フィルターより手前に文字を出す */
+  z-index: 1;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.catch {/* キャッチコピー */
+  font-size: 1.1rem;
+  color: #e0f7ff;
+  margin-top: 12px;
+  letter-spacing: 0.08em;
+}
+
+/* ========== aboutセクション ========== */
+section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 100px;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-left: 4px solid #37b8e3; /* アクセントも海の青に */
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+
+.about-inner {
+  display: flex;
+  flex-direction: row; /* 横並び */
+  align-items: center;
+  gap: 30px;
+  text-align: left;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column; /* 文章だけ縦並び */
+  gap: 12px;
+}
+
+.about-text p {
+  white-space: nowrap; /* 文章を1行に固定 */
+}
+
+.profile-photo {/* プロフィール写真 */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* 丸くする */
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ========== スキル ========== */
+
+
+/* ========== お問い合わせ ========== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #37b8e3; /* 入力中に枠が青くなる */
+}
+
+button[type="submit"] {
+  display: inline-block;
+  color: white;
+  background-color: #37b8e3;;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #007baa;
+}
+/* ========== アニメーション ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px); /* 少し下にずらした状態からスタート */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); /* 元の位置に戻る */
+}
+
+/* ========== スマホ対応 ========== */
+@media (max-width: 600px) {
+
+  /* ヘッダーを画面全幅に */
+  header {
+    background-position: center;
+    padding: 60px 20px;
+  }
+
+  /* セクションの余白をスマホ向けに */
+  section {
+    padding: 0 20px;
+  }
+
+  /* 写真と文章を縦並びに */
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* 文章の折り返しを戻す */
+  .about-text p {
+    white-space: normal;
+  }
+
+  /* フォームを画面幅に合わせる */
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+  }
+
+}
