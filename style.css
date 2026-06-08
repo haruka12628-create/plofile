@@ -185,4 +185,15 @@ button[type="submit"]:hover {
     width: 100%;
   }
 
+    /* 文字サイズを少し小さくして1行に収める */
+  .about-text p {
+    white-space: normal;
+    font-size: 0.85rem;
+  }
+
+  /* キャッチコピーも調整 */
+  .catch {
+    font-size: 0.9rem;
+  }
+  
 }
