@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>料金プラン｜ホームページ制作</title>
+  <link rel="stylesheet" href="price.css">
+</head>
+<body>
+
+  <header>
+    <h1>料金プラン</h1>
+    <p class="catch">小さなお店・教室のための、シンプルなホームページ制作。</p>
+  </header>
+
+  <!-- 実績づくりのため、最初の数件だけ特別価格で受けることを一番上で伝える -->
+  <section id="monitor" class="fade-in">
+    <div class="monitor-box">
+      <p class="monitor-label">モニター募集中</p>
+      <p class="monitor-price">30,000<span class="yen">円</span></p>
+      <p class="monitor-note">
+        制作事例としてサイトを紹介させていただける方限定の価格です。<br>
+        内容は「ライトプラン」と同じものをお作りします。
+      </p>
+    </div>
+  </section>
+
+  <section id="plans" class="fade-in">
+    <h2>制作プラン</h2>
+
+    <div class="plan-list">
+
+      <div class="plan">
+        <p class="plan-name">ライト</p>
+        <p class="plan-price">50,000<span class="yen">円</span></p>
+        <ul>
+          <li>1ページ（縦に読み進める形）</li>
+          <li>スマートフォン対応</li>
+          <li>お問い合わせフォーム</li>
+          <li>写真の配置・文章の整え</li>
+        </ul>
+        <p class="plan-for">はじめてサイトを持つ方に</p>
+      </div>
+
+      <!-- 一番選んでほしいプランなので recommend クラスで目立たせる -->
+      <div class="plan recommend">
+        <p class="plan-badge">おすすめ</p>
+        <p class="plan-name">スタンダード</p>
+        <p class="plan-price">120,000<span class="yen">円</span></p>
+        <ul>
+          <li>3〜5ページ</li>
+          <li>スマートフォン対応</li>
+          <li>お問い合わせフォーム</li>
+          <li>Instagram の埋め込み</li>
+          <li>Google マップの埋め込み</li>
+        </ul>
+        <p class="plan-for">教室・お店の公式サイトに</p>
+      </div>
+
+      <div class="plan">
+        <p class="plan-name">保守</p>
+        <p class="plan-price">3,000<span class="yen">円 / 月</span></p>
+        <ul>
+          <li>月1回までの内容修正</li>
+          <li>サーバー・ドメインの管理</li>
+          <li>不具合が出たときの対応</li>
+        </ul>
+        <p class="plan-for">作ったあとも安心したい方に</p>
+      </div>
+
+    </div>
+
+    <p class="plans-note">
+      料金はすべて税込です。ページ数や内容によって変わる場合は、必ず着手前にお見積りをお出しします。
+    </p>
+  </section>
+
+  <section id="flow" class="fade-in">
+    <h2>制作の流れ</h2>
+    <ol class="flow-list">
+      <li>
+        <p class="flow-step">1. ご相談</p>
+        <p>どんなサイトにしたいか、お話を聞かせてください。無料です。</p>
+      </li>
+      <li>
+        <p class="flow-step">2. お見積り</p>
+        <p>内容と金額、完成までの日数をお伝えします。ここで断っていただいて大丈夫です。</p>
+      </li>
+      <li>
+        <p class="flow-step">3. 制作</p>
+        <p>写真と文章をお預かりして作ります。途中で一度ご確認いただきます。</p>
+      </li>
+      <li>
+        <p class="flow-step">4. 公開</p>
+        <p>修正が終わったら公開します。お支払いは公開後で構いません。</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="faq" class="fade-in">
+    <h2>よくあるご質問</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">写真や文章がないのですが、大丈夫ですか？</p>
+      <p class="faq-a">大丈夫です。お持ちの写真から選んだり、お話を伺って文章の下書きをお作りすることもできます。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">完成までどのくらいかかりますか？</p>
+      <p class="faq-a">ライトプランで2〜3週間、スタンダードプランで1か月半ほどが目安です。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">あとから内容を変えられますか？</p>
+      <p class="faq-a">はい。保守プランをご利用いただくと月1回まで無料で修正します。単発の修正も承ります。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">サーバー代やドメイン代は別ですか？</p>
+      <p class="faq-a">別途かかります。年間で1,500円〜程度です。ご希望があればこちらで手配します。</p>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>お問い合わせ</h2>
+    <p class="contact-lead">
+      「こんなことできますか？」だけでも構いません。お気軽にご連絡ください。
+    </p>
+
+    <form action="https://formspree.io/f/mzdqrrdz" method="POST">
+      <!-- どのページから来た問い合わせか、メールの件名で分かるようにする -->
+      <input type="hidden" name="_subject" value="【料金ページ】ホームページ制作のお問い合わせ">
+
+      <div class="form-group">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" placeholder="山田太郎">
+      </div>
+      <div class="form-group">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com">
+      </div>
+      <div class="form-group">
+        <label for="plan">ご希望のプラン</label>
+        <select id="plan" name="plan">
+          <option value="">選んでください（未定でも大丈夫です）</option>
+          <option value="モニター（30,000円）">モニター（30,000円）</option>
+          <option value="ライト（50,000円）">ライト（50,000円）</option>
+          <option value="スタンダード（120,000円）">スタンダード（120,000円）</option>
+          <option value="まだ決めていない・相談したい">まだ決めていない・相談したい</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">ご相談内容</label>
+        <textarea id="message" name="message" rows="5" placeholder="例）フラダンス教室のサイトを作りたいです。写真は何枚かあります。"></textarea>
+      </div>
+      <button type="submit">送信する</button>
+    </form>
+  </section>
+
+  <p class="back-link"><a href="index.html">← プロフィールに戻る</a></p>
+
+<script>
+    // スクロールでふわっと表示
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+
+    // ページが表示されたときにフォームをリセット
+  window.addEventListener('pageshow', function() {
+    document.querySelector('form').reset();
+  });
+
+  document.querySelector('form').addEventListener('submit', function(e) {
+    var name    = document.getElementById('name').value;
+    var email   = document.getElementById('email').value;
+    var plan    = document.getElementById('plan').value;
+    var message = document.getElementById('message').value;
+
+    if (!name || !email || !message) {
+      alert('お名前・メールアドレス・ご相談内容を入力してください');
+      e.preventDefault();
+      return;
+    }
+
+    var confirmed = confirm(
+      '以下の内容で送信しますか？\n\n' +
+      'お名前：' + name + '\n' +
+      'メール：' + email + '\n' +
+      'ご希望のプラン：' + (plan || '未選択') + '\n' +
+      'ご相談内容：' + message
+    );
+
+    if (!confirmed) {
+      e.preventDefault(); // キャンセルしたら送信しない
+    }
+  });
+</script>
+
+</body>
+</html>

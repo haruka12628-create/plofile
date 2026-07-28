@@ -83,7 +83,7 @@ h2 {
 }
 
 .about-text p {
-  white-space: nowrap; /* 文章を1行に固定 */
+  white-space: normal; /* 文章が長くなったので折り返す（横スクロール防止） */
 }
 
 .profile-photo {/* プロフィール写真 */
@@ -99,6 +99,11 @@ h2 {
 #skills ul {
   padding-left: 1.4em;
 }
+
+#skills ul li {
+  margin-bottom: 8px; /* 項目が増えたので行間をあける */
+}
+
 
 /* ========== お問い合わせ ========== */
 .form-group {
@@ -187,7 +192,7 @@ button[type="submit"]:hover {
     width: 100%;
   }
 
-    /* 文字サイズを少し小さくして1行に収める */
+  /* 文字サイズを少し小さくして1行に収める */
   .about-text p {
     white-space: normal;
     font-size: 0.85rem;
@@ -197,5 +202,25 @@ button[type="submit"]:hover {
   .catch {
     font-size: 0.9rem;
   }
-  
+
+
+}
+/* ========== 料金ページへのリンク ========== */
+.price-link {
+  margin-top: 14px;
+}
+
+.price-link a {
+  display: inline-block;
+  color: white;
+  background-color: #37b8e3;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.price-link a:hover {
+  background-color: #007baa;
 }
