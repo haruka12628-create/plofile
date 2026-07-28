@@ -28,62 +28,78 @@ h1 {
   text-wrap: balance;
 }
 
-/* ========== ヘッダー ========== */
+/* ========== ヘッダー ==========
+   青一色だと「入りにくいお店」に見えるので、
+   ベージュを土台にテラコッタと水色をふわっと重ねてあたたかくした */
 header {
-  /* 制作の内容と関係のない写真はやめて、無地のグラデーションにした */
-  background: linear-gradient(160deg, #5cc8ec 0%, #37b8e3 55%, #2795c0 100%);
+  background:
+    radial-gradient(circle at 14% 20%, rgba(201,111,74,0.16) 0, transparent 44%),
+    radial-gradient(circle at 86% 76%, rgba(55,184,227,0.20) 0, transparent 46%),
+    linear-gradient(170deg, #fffaf3 0%, #fdf0e0 100%);
   text-align: center;
-  padding: 72px 20px;
+  padding: 78px 20px 72px;
   position: relative;
+  overflow: hidden; /* 装飾がはみ出さないように */
+}
+
+/* 下の余白との境目をやわらかく見せる細い線 */
+header::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c96f4a 0%, #e0a884 50%, #37b8e3 100%);
 }
 
 header h1,
 header p {
-  position: relative; /* フィルターより手前に文字を出す */
+  position: relative;
   z-index: 1;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  color: #3a3330; /* 背景が明るくなったので文字は濃い色に */
+}
+
+/* h1の上に置く小さな行。誰向けかを先に伝える */
+.eyebrow {
+  font-size: 0.9rem;
+  color: #a8674a;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
 }
 
 header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  line-height: 1.5; /* 文が長くなったので行間をあける */
-}
-
-/* スマホのときだけ改行する用（PCでは効かない） */
-.sp-only {
-  display: none;
+  font-size: 2.1rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
 }
 
 /* ヘッダー内の「料金プランを見る」ボタン */
 .hero-btn {
-  position: relative; /* フィルターより手前に出す */
+  position: relative;
   z-index: 1;
-  margin-top: 22px;
+  margin-top: 26px;
 }
 
 .hero-btn a {
   display: inline-block;
-  color: #333;
-  background-color: #fff;
-  padding: 12px 28px;
+  color: #fff;
+  background-color: #c96f4a;
+  padding: 14px 32px;
   border-radius: 30px;
   text-decoration: none;
   font-size: 0.95rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 16px rgba(201,111,74,0.32);
   transition: background-color 0.3s;
 }
 
 .hero-btn a:hover {
-  background-color: #e0f7ff;
+  background-color: #b25c39;
 }
 
 .catch {/* キャッチコピー */
-  font-size: 1.1rem;
-  color: #e0f7ff;
-  margin-top: 12px;
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  color: #6f635c;
+  margin-top: 14px;
+  letter-spacing: 0.04em;
 }
 
 /* ========== aboutセクション ========== */
@@ -279,19 +295,13 @@ button[type="submit"]:hover {
 /* ========== スマホ対応 ========== */
 @media (max-width: 600px) {
 
-  /* ヘッダーを画面全幅に */
+  /* ヘッダーの余白をスマホ向けに */
   header {
-    background-position: center;
-    padding: 60px 20px;
+    padding: 58px 20px 54px;
   }
 
-  /* 見出しが長いのでスマホでは小さく＆2行に割る */
   header h1 {
-    font-size: 1.45rem;
-  }
-
-  .sp-only {
-    display: inline; /* スマホのときだけ改行を有効にする */
+    font-size: 1.7rem;
   }
 
   /* セクションの余白をスマホ向けに */

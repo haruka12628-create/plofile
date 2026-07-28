@@ -13,23 +13,36 @@ body {
 }
 
 /* ========== ヘッダー ========== */
+/* トップページと同じ配色にそろえる */
 header {
-  background-color: #37b8e3;
+  background:
+    radial-gradient(circle at 14% 20%, rgba(201,111,74,0.16) 0, transparent 44%),
+    radial-gradient(circle at 86% 76%, rgba(55,184,227,0.20) 0, transparent 46%),
+    linear-gradient(170deg, #fffaf3 0%, #fdf0e0 100%);
   text-align: center;
-  padding: 60px 20px;
+  padding: 62px 20px 58px;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c96f4a 0%, #e0a884 50%, #37b8e3 100%);
 }
 
 header h1 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  color: #3a3330;
 }
 
 .catch {/* キャッチコピー */
-  font-size: 1.1rem;
-  color: #e0f7ff;
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  color: #6f635c;
+  letter-spacing: 0.04em;
 }
 
 /* ========== セクション共通 ========== */
