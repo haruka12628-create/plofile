@@ -8,30 +8,33 @@
 body {
   font-family: sans-serif;
   color: #333;
-  line-height: 1.8;
+  line-height: 1.9;
   background-color: #fdf8f0; /* 砂浜っぽいベージュ */
+}
+
+/* 日本語の改行を読みやすくする共通ルール
+   ・auto-phrase   → 文節の切れ目で折り返す（対応ブラウザのみ。非対応でも害はない）
+   ・text-wrap: pretty → 最終行に1文字だけ残るのを防ぐ */
+p,
+li,
+h1, h2 {
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+/* 見出しは行の長さを揃えたほうが締まって見える */
+h1 {
+  text-wrap: balance;
 }
 
 /* ========== ヘッダー ========== */
 header {
-  background-image: url('hero.jpg');
-  background-size: cover;      /* 画像をヘッダー全体に広げる */
-  background-position: center; /* 画像の中央を表示 */
+  /* 制作の内容と関係のない写真はやめて、無地のグラデーションにした */
+  background: linear-gradient(160deg, #5cc8ec 0%, #37b8e3 55%, #2795c0 100%);
   text-align: center;
-  padding: 60px 20px;
+  padding: 72px 20px;
   position: relative;
-}
-
-header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.05) 0%,   /* 上は透明に近い → 写真が綺麗に見える */
-    rgba(0, 0, 0, 0.45) 100%  /* 下だけ少し暗くして文字を読みやすく */
-  );
 }
 
 header h1,
@@ -76,12 +79,6 @@ header h1 {
   background-color: #e0f7ff;
 }
 
-/* 名前だけ少し目立たせる */
-.my-name {
-  font-weight: bold;
-  font-size: 1.05rem;
-}
-
 .catch {/* キャッチコピー */
   font-size: 1.1rem;
   color: #e0f7ff;
@@ -103,31 +100,115 @@ h2 {
   margin-bottom: 20px;
 }
 
-.about-inner {
-  display: flex;
-  flex-direction: row; /* 横並び */
-  align-items: center;
-  gap: 30px;
-  text-align: left;
-}
-
-.about-text {
-  display: flex;
-  flex-direction: column; /* 文章だけ縦並び */
-  gap: 12px;
-}
-
-.about-text p {
-  white-space: normal; /* 文章が長くなったので折り返す（横スクロール防止） */
+/* 写真と名前のかたまり。本文とは切り離して中央に置く */
+.profile-card {
+  text-align: center;
+  margin-bottom: 28px;
 }
 
 .profile-photo {/* プロフィール写真 */
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%; /* 丸くする */
   object-fit: cover;
-  flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-name {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+.profile-role {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* 本文は必ず左揃え。中央揃えにすると行の頭が揃わず読みにくい */
+.about-text {
+  display: flex;
+  flex-direction: column; /* 文章だけ縦並び */
+  gap: 14px;
+  text-align: left;
+}
+
+/* ========== お悩み ========== */
+.problem-list {
+  list-style: none; /* チェック印を自分で付けるので消す */
+}
+
+.problem-list li {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 14px 18px 14px 46px;
+  margin-bottom: 10px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 各項目の頭にチェック印を置く */
+.problem-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 18px;
+  color: #c96f4a;
+  font-weight: bold;
+}
+
+.problem-lead {
+  margin-top: 18px;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+}
+
+/* 各セクションの補足文 */
+.section-note {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ========== 料金のまとめ ========== */
+.price-summary {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 8px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px dashed #e6ddd1;
+}
+
+.price-row:last-child {
+  border-bottom: none;
+}
+
+.price-plan {
+  width: 6.5em;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.price-amount {
+  width: 6.5em;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: #37b8e3;
+}
+
+.price-desc {
+  font-size: 0.88rem;
+  color: #777;
 }
 
 /* ========== スキル ========== */
@@ -218,34 +299,32 @@ button[type="submit"]:hover {
     padding: 0 16px;
   }
 
-  /* 写真と文章を縦並びに */
-  .about-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* 文章の折り返しを戻す */
-  .about-text p {
-    white-space: normal;
-  }
-
   /* フォームを画面幅に合わせる */
   .form-group input,
   .form-group textarea {
     width: 100%;
   }
 
-  /* 文字サイズを少し小さくして1行に収める */
-  .about-text p {
-    white-space: normal;
-    font-size: 0.85rem;
+  /* 本文はスマホでも左揃えのまま。中央揃えにすると行頭がバラけて読みにくい */
+  .about-text {
+    font-size: 0.95rem;
   }
 
   /* キャッチコピーも調整（字間を詰めて1行に収める） */
   .catch {
     font-size: 0.82rem;
     letter-spacing: 0;
+  }
+
+  /* 料金の行は、プラン名＋金額を上、説明を下に折り返す */
+  .price-row {
+    flex-wrap: wrap;
+    gap: 0 12px;
+  }
+
+  .price-desc {
+    width: 100%; /* 説明だけ次の行に送る */
+    margin-top: 2px;
   }
 
 
