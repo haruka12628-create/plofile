@@ -45,6 +45,41 @@ header p {
 header h1 {
   font-size: 2rem;
   margin-bottom: 10px;
+  line-height: 1.5; /* 文が長くなったので行間をあける */
+}
+
+/* スマホのときだけ改行する用（PCでは効かない） */
+.sp-only {
+  display: none;
+}
+
+/* ヘッダー内の「料金プランを見る」ボタン */
+.hero-btn {
+  position: relative; /* フィルターより手前に出す */
+  z-index: 1;
+  margin-top: 22px;
+}
+
+.hero-btn a {
+  display: inline-block;
+  color: #333;
+  background-color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+.hero-btn a:hover {
+  background-color: #e0f7ff;
+}
+
+/* 名前だけ少し目立たせる */
+.my-name {
+  font-weight: bold;
+  font-size: 1.05rem;
 }
 
 .catch {/* キャッチコピー */
@@ -169,6 +204,15 @@ button[type="submit"]:hover {
     padding: 60px 20px;
   }
 
+  /* 見出しが長いのでスマホでは小さく＆2行に割る */
+  header h1 {
+    font-size: 1.45rem;
+  }
+
+  .sp-only {
+    display: inline; /* スマホのときだけ改行を有効にする */
+  }
+
   /* セクションの余白をスマホ向けに */
   section {
     padding: 0 16px;
@@ -198,9 +242,10 @@ button[type="submit"]:hover {
     font-size: 0.85rem;
   }
 
-  /* キャッチコピーも調整 */
+  /* キャッチコピーも調整（字間を詰めて1行に収める） */
   .catch {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    letter-spacing: 0;
   }
 
 
