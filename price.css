@@ -6,10 +6,26 @@
 }
 
 body {
-  font-family: sans-serif;
-  color: #333;
-  line-height: 1.8;
+  /* 本文はゴシック体 */
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: #3a3330;
+  line-height: 1.95;
   background-color: #fdf8f0; /* 砂浜っぽいベージュ（プロフィールサイトと同じ） */
+  letter-spacing: 0.05em;
+}
+
+/* 見出しと金額は明朝体に */
+h1, h2, .plan-name, .plan-price, .monitor-price, .flow-step {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* 日本語の改行を読みやすく */
+p, li, h1, h2 {
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 /* ========== ヘッダー ========== */
@@ -47,16 +63,26 @@ header h1 {
 
 /* ========== セクション共通 ========== */
 section {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 20px;
+  max-width: 760px;
+  margin: 110px auto; /* セクション間はしっかり空ける */
+  padding: 0 24px;
 }
 
 h2 {
-  font-size: 1.4rem;
-  border-left: 4px solid #37b8e3; /* アクセントも海の青に */
-  padding-left: 12px;
-  margin-bottom: 24px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 44px;
+  height: 2px;
+  background-color: #c96f4a;
 }
 
 /* ========== モニター募集の枠 ========== */
@@ -66,7 +92,7 @@ h2 {
   border-radius: 12px;
   padding: 28px 24px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 28px rgba(58,51,48,0.06);
 }
 
 .monitor-label {
@@ -115,13 +141,13 @@ h2 {
   border-radius: 12px;
   padding: 24px 20px;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(58,51,48,0.05);
 }
 
 /* おすすめのプランだけ枠を青くして少し持ち上げる */
 .plan.recommend {
-  border: 2px solid #37b8e3;
-  box-shadow: 0 6px 16px rgba(55,184,227,0.2);
+  border: 2px solid #c96f4a;
+  box-shadow: 0 12px 30px rgba(201,111,74,0.18);
 }
 
 .plan-badge {
@@ -129,7 +155,7 @@ h2 {
   top: -14px;
   left: 50%;
   transform: translateX(-50%); /* 中央に寄せる */
-  background-color: #37b8e3;
+  background-color: #c96f4a;
   color: white;
   font-size: 0.8rem;
   padding: 3px 16px;
@@ -148,7 +174,7 @@ h2 {
   font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
-  color: #37b8e3;
+  color: #c96f4a;
   margin-bottom: 16px;
   line-height: 1.3;
 }
@@ -183,7 +209,7 @@ h2 {
 }
 
 .flow-list li {
-  border-left: 2px solid #cfe9f5;
+  border-left: 2px solid #eddfd4;
   padding: 0 0 24px 20px;
   position: relative;
 }
@@ -196,7 +222,7 @@ h2 {
   top: 8px;
   width: 12px;
   height: 12px;
-  background-color: #37b8e3;
+  background-color: #c96f4a;
   border-radius: 50%;
 }
 
@@ -207,7 +233,7 @@ h2 {
 
 .flow-step {
   font-weight: bold;
-  color: #37b8e3;
+  color: #c96f4a;
 }
 
 /* ========== よくあるご質問 ========== */
@@ -223,7 +249,7 @@ h2 {
 
 .faq-q::before {
   content: 'Q. ';
-  color: #37b8e3;
+  color: #c96f4a;
 }
 
 .faq-a {
@@ -272,13 +298,13 @@ h2 {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #37b8e3; /* 入力中に枠が青くなる */
+  border-color: #c96f4a; /* 入力中に枠が色づく */
 }
 
 button[type="submit"] {
   display: inline-block;
   color: white;
-  background-color: #37b8e3;
+  background-color: #c96f4a;
   border: none;
   padding: 12px 32px;
   border-radius: 30px;
@@ -288,7 +314,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #007baa;
+  background-color: #b25c39;
 }
 
 /* ========== プロフィールへ戻るリンク ========== */
@@ -299,7 +325,7 @@ button[type="submit"]:hover {
 }
 
 .back-link a {
-  color: #37b8e3;
+  color: #c96f4a;
   text-decoration: none;
 }
 

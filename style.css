@@ -6,10 +6,20 @@
 }
 
 body {
-  font-family: sans-serif;
-  color: #333;
-  line-height: 1.9;
+  /* 本文はゴシック体。読みやすさ優先 */
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: #3a3330;
+  line-height: 1.95;
   background-color: #fdf8f0; /* 砂浜っぽいベージュ */
+  letter-spacing: 0.05em;    /* 本文は字間を「空ける」と読みやすくなる */
+}
+
+/* 見出しは明朝体にする。上品な印象になる定番の組み合わせ。
+   本文に明朝を使うとWebでは読みにくいので、見出しだけに留めるのがコツ */
+h1, h2, .profile-name, .plan-price, .monitor-price, .price-amount {
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-weight: 600;
+  letter-spacing: -0.03em; /* 見出しは逆に「詰める」と締まって見える */
 }
 
 /* 日本語の改行を読みやすくする共通ルール
@@ -102,18 +112,32 @@ header h1 {
   letter-spacing: 0.04em;
 }
 
-/* ========== aboutセクション ========== */
+/* ========== セクション共通 ==========
+   余白は一律にせず「関係が近いものは近く、遠いものは遠く」。
+   セクション間は大きく空け、見出しと本文はほどよく近づける */
 section {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 100px;
+  max-width: 760px;
+  margin: 120px auto; /* セクション間はしっかり空ける */
+  padding: 0 24px;
 }
 
+/* 見出しは罫線を左に立てる形をやめて、下に短い線を敷く形にした */
 h2 {
-  font-size: 1.4rem;
-  border-left: 4px solid #37b8e3; /* アクセントも海の青に */
-  padding-left: 12px;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44px;
+  height: 2px;
+  background-color: #c96f4a;
 }
 
 /* 写真と名前のかたまり。本文とは切り離して中央に置く */
@@ -127,7 +151,7 @@ h2 {
   height: 120px;
   border-radius: 50%; /* 丸くする */
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(58,51,48,0.10);
 }
 
 .profile-name {
@@ -151,6 +175,56 @@ h2 {
   text-align: left;
 }
 
+/* 見出しのすぐ下に置く導入文 */
+.section-lead {
+  margin-bottom: 28px;
+  color: #5c534d;
+}
+
+/* ========== 制作したサイト ========== */
+.work-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.work {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: #fff;
+  border-radius: 14px;
+  overflow: hidden; /* 画像の角も一緒に丸める */
+  box-shadow: 0 8px 24px rgba(58,51,48,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.work:hover {
+  transform: translateY(-4px); /* 少し浮かせてクリックできると伝える */
+  box-shadow: 0 14px 32px rgba(58,51,48,0.12);
+}
+
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.work-body {
+  padding: 18px 20px 22px;
+}
+
+.work-name {
+  font-weight: 500;
+}
+
+.work-desc {
+  font-size: 0.82rem;
+  color: #8b807a;
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
 /* ========== お悩み ========== */
 .problem-list {
   list-style: none; /* チェック印を自分で付けるので消す */
@@ -162,7 +236,7 @@ h2 {
   padding: 14px 18px 14px 46px;
   margin-bottom: 10px;
   position: relative;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 18px rgba(58,51,48,0.05);
 }
 
 /* 各項目の頭にチェック印を置く */
@@ -193,7 +267,7 @@ h2 {
   background-color: #fff;
   border-radius: 12px;
   padding: 8px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(58,51,48,0.05);
 }
 
 .price-row {
@@ -219,7 +293,7 @@ h2 {
   width: 6.5em;
   flex-shrink: 0;
   font-weight: bold;
-  color: #37b8e3;
+  color: #c96f4a;
 }
 
 .price-desc {
@@ -262,13 +336,13 @@ h2 {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #37b8e3; /* 入力中に枠が青くなる */
+  border-color: #c96f4a; /* 入力中に枠が色づく */
 }
 
 button[type="submit"] {
   display: inline-block;
   color: white;
-  background-color: #37b8e3;;
+  background-color: #c96f4a;
   border: none;
   padding: 12px 32px;
   border-radius: 30px;
@@ -278,7 +352,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #007baa;
+  background-color: #b25c39;
 }
 /* ========== アニメーション ========== */
 .fade-in {
@@ -304,9 +378,16 @@ button[type="submit"]:hover {
     font-size: 1.7rem;
   }
 
-  /* セクションの余白をスマホ向けに */
+  /* セクションの余白をスマホ向けに（PCより詰めるが、強弱は残す） */
   section {
-    padding: 0 16px;
+    padding: 0 20px;
+    margin: 80px auto;
+  }
+
+  /* 制作したサイトは1列に */
+  .work-list {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   /* フォームを画面幅に合わせる */

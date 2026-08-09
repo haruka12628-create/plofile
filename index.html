@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>はじめてのホームページ制作｜五十嵐はるか</title>
+  <!-- 見出し用に明朝体（Noto Serif JP）、本文用にゴシック体（Noto Sans JP）を読み込む
+       weightは必要な分だけに絞って、読み込みを軽くしている -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +45,33 @@
     <p class="section-note">「写真も文章もまだ何もない」という状態からで大丈夫です。お話を伺いながら、いっしょに決めていきます。</p>
   </section>
 
-  <!-- ③ そのうえで料金 -->
+  <!-- ③ どんなものが出来上がるかを見せる -->
+  <section id="works" class="fade-in">
+    <h2>制作したサイト</h2>
+    <p class="section-lead">実際にどんなものが出来上がるか、サンプルとして制作したサイトをご覧いただけます。</p>
+
+    <div class="work-list">
+      <a class="work" href="https://haruka-web-studio.github.io/samples/hula/" target="_blank" rel="noopener">
+        <img src="works/work-hula.png" alt="フラダンス教室のサイト" loading="lazy">
+        <div class="work-body">
+          <p class="work-name">フラダンス教室</p>
+          <p class="work-desc">スタンダードプラン相当／写真・スケジュール・体験申込</p>
+        </div>
+      </a>
+
+      <a class="work" href="https://haruka-web-studio.github.io/samples/profile/" target="_blank" rel="noopener">
+        <img src="works/work-profile.png" alt="個人のプロフィールサイト" loading="lazy">
+        <div class="work-body">
+          <p class="work-name">プロフィールサイト</p>
+          <p class="work-desc">ライトプラン相当／1ページ・問い合わせフォーム</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="section-note">※ 掲載しているのはサンプルとして制作したデモサイトです。名前・連絡先はすべて架空のものです。</p>
+  </section>
+
+  <!-- ④ そのうえで料金 -->
   <section id="price" class="fade-in">
     <h2>料金</h2>
     <div class="price-summary">
